@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:../cliente/clientes_db
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties.hibernate.show_sql: true
+    properties.hibernate.format_sql: true
+    hibernate.ddl-auto: update
+
+  jackson:
+    default-property-inclusion: NON_NULL
+
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: group-id
+      auto-offset-reset: earliest
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+topic:
+  endereco-client: topic_endereco_cliente
+
+server:
+  port: 8081
